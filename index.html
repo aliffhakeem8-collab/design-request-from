@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design & Logo Request</title>
+<link rel="icon" type="image/png" href="ES_LOGO.png" />
+<style>
+:root {
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --surface2: #222222;
+  --border: #2e2e2e;
+  --border2: #3a3a3a;
+  --accent: #c8f135;
+  --accent-dark: #a8d020;
+  --text: #f0f0f0;
+  --text2: #a0a0a0;
+  --text3: #606060;
+  --radius: 12px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Hero ── */
+.hero {
+  background: var(--accent);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #3a4a00;
+  margin-bottom: 10px;
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  color: #0f0f0f;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.hero p {
+  font-size: 16px;
+  color: #3a4a00;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Contact CTA bar ── */
+.cta-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-inner {
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.cta-label {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.cta-label strong {
+  color: var(--text);
+}
+
+/* ── Dropdown trigger ── */
+.dropdown-wrap {
+  position: relative;
+}
+
+.dropdown-btn {
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #0f0f0f;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.dropdown-btn:hover { background: var(--accent-dark); }
+
+.dropdown-btn .arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+  font-style: normal;
+}
+.dropdown-btn.open .arrow { transform: rotate(180deg); }
+
+/* ── Dropdown menu ── */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 240px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 100;
+}
+.dropdown-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.menu-header {
+  padding: 12px 16px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  border-bottom: 1px solid var(--border);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.1s;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font);
+}
+.menu-item:hover { background: var(--surface2); }
+.menu-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+
+.menu-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.icon-form  { background: rgba(200,241,53,0.15); }
+.icon-email { background: rgba(99,179,237,0.15); }
+.icon-insta { background: rgba(240,98,146,0.15); }
+
+.menu-text-wrap { flex: 1; }
+.menu-title { font-size: 14px; font-weight: 600; color: var(--text); }
+.menu-sub   { font-size: 12px; color: var(--text2); margin-top: 1px; }
+
+.menu-arrow { font-size: 14px; color: var(--text3); }
+
+/* ── Form wrapper ── */
+.form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-bottom: 1rem;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.card-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+
+/* ── Fields ── */
+.field { margin-bottom: 1.1rem; }
+.field:last-child { margin-bottom: 0; }
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 10px 13px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text3); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200,241,53,0.12);
+}
+.field textarea { resize: vertical; line-height: 1.6; }
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23606060' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.field select option { background: #1a1a1a; }
+.hint { font-size: 12px; color: var(--text3); margin-top: 5px; }
+.req { color: var(--accent); margin-left: 2px; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 500px) {
+  .two-col { grid-template-columns: 1fr; }
+  .hero { padding: 2rem 1.25rem; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+}
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 0.75rem 0; }
+
+/* ── Chips ── */
+.chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+.chip {
+  font-family: var(--font);
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  color: var(--text2);
+  background: var(--surface2);
+  transition: all 0.12s;
+  user-select: none;
+}
+.chip:hover { border-color: var(--accent); color: var(--text); }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #0f0f0f; font-weight: 600; }
+
+/* ── Swatches ── */
+.swatches { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 7px; }
+.swatch {
+  width: 32px; height: 32px; border-radius: 50%;
+  cursor: pointer; border: 2px solid transparent;
+  transition: transform 0.12s; position: relative; flex-shrink: 0;
+}
+.swatch:hover { transform: scale(1.15); }
+.swatch.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+.swatch.on::after {
+  content: '✓'; position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* ── References ── */
+.refs { display: flex; flex-direction: column; gap: 7px; margin-top: 6px; }
+.ref-row { display: flex; gap: 8px; align-items: center; }
+.ref-row input { flex: 1; }
+.rm-btn {
+  flex-shrink: 0; width: 30px; height: 30px;
+  background: none; border: 1px solid var(--border2);
+  border-radius: 7px; color: var(--text3);
+  cursor: pointer; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.1s;
+}
+.rm-btn:hover { border-color: #c00; color: #c00; }
+.add-btn {
+  font-family: var(--font); font-size: 13px; color: var(--text2);
+  background: none; border: 1px dashed var(--border2);
+  border-radius: 8px; padding: 8px 14px;
+  cursor: pointer; margin-top: 8px;
+  transition: all 0.12s; width: 100%; text-align: left;
+}
+.add-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Submit area ── */
+.submit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  text-align: center;
+}
+.submit-card p { font-size: 14px; color: var(--text2); margin-bottom: 1.25rem; line-height: 1.6; }
+.btn-submit {
+  font-family: var(--font); font-size: 15px; font-weight: 700;
+  padding: 14px 40px; border-radius: 10px;
+  background: var(--accent); color: #0f0f0f;
+  border: none; cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.btn-submit:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+.error-msg {
+  display: none;
+  background: rgba(200,0,0,0.1);
+  border: 1px solid rgba(200,0,0,0.3);
+  color: #ff6b6b; border-radius: 8px;
+  padding: 11px 15px; font-size: 13px; margin-top: 12px;
+}
+
+/* ── Thank you ── */
+.thankyou { display: none; text-align: center; padding: 5rem 2rem; max-width: 480px; margin: 0 auto; }
+.check-circle {
+  width: 64px; height: 64px; background: var(--accent);
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; margin: 0 auto 1.5rem; font-size: 28px;
+}
+.thankyou h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+.thankyou p { font-size: 15px; color: var(--text2); line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-eyebrow">Creative Brief</div>
+  <h1>Design & Logo<br>Request Form</h1>
+  <p>Tell us about your vision. The more detail you share, the better we can bring it to life.</p>
+</div>
+
+<!-- Contact CTA bar with dropdown -->
+<div class="cta-bar">
+  <div class="cta-inner">
+    <div class="cta-label">Not sure about the form? <strong>Reach us directly.</strong></div>
+    <div class="dropdown-wrap">
+      <button class="dropdown-btn" id="dropbtn" onclick="toggleDropdown()">
+        Get in touch <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dropmenu">
+        <div class="menu-header">Choose how to connect</div>
+
+        <!-- Submit form (scrolls down) -->
+        <button class="menu-item" onclick="scrollToForm(); closeDropdown();">
+          <div class="menu-icon icon-form">📋</div>
+          <div class="menu-text-wrap">
+            <div class="menu-title">Submit a Request</div>
+            <div class="menu-sub">Fill in the brief below</div>
+          </div>
+          <span class="menu-arrow">↓</span>
+        </button>
+
+        <!-- Direct contact / email -->
+        <a class="menu-item" href="mailto:hello@youremail.com" onclick="closeDropdown()">
+          <div class="menu-icon icon-email">✉️</div>
+          <div class="menu-text-wrap">
+            <div class="menu-title">Direct Contact</div>
+            <div class="menu-sub">hello@youremail.com</div>
+          </div>
+          <span class="menu-arrow">→</span>
+        </a>
+
+        <!-- Instagram -->
+        <a class="menu-item" href="https://instagram.com/yourhandle" target="_blank" rel="noopener" onclick="closeDropdown()">
+          <div class="menu-icon icon-insta">📸</div>
+          <div class="menu-text-wrap">
+            <div class="menu-title">Instagram</div>
+            <div class="menu-sub">@yourhandle</div>
+          </div>
+          <span class="menu-arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form -->
+<div class="form-wrap">
+  <form id="form" action="https://formspree.io/f/xgojvwjj" method="POST">
+
+    <input type="hidden" name="design_types" id="f-types" />
+    <input type="hidden" name="style_mood" id="f-style" />
+    <input type="hidden" name="preferred_colors" id="f-colors" />
+    <input type="hidden" name="file_formats" id="f-formats" />
+
+    <!-- 1. Your details -->
+    <div class="card" id="form-start">
+      <div class="card-header">
+        <div class="card-icon">👤</div>
+        <div class="card-title">Your Details</div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Your name <span class="req">*</span></label>
+          <input type="text" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="field">
+          <label>Company / project <span class="req">*</span></label>
+          <input type="text" name="company" placeholder="Acme Co." required />
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Email address <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="jane@acme.com" required />
+        </div>
+        <div class="field">
+          <label>Phone <span style="color:var(--text3);font-weight:400;">(optional)</span></label>
+          <input type="tel" name="phone" placeholder="+1 555 000 0000" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Project -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Project Details</div>
+      </div>
+      <div class="field">
+        <label>Type of design needed <span class="req">*</span></label>
+        <div class="chips" id="chips-types">
+          <div class="chip" data-value="Logo">Logo</div>
+          <div class="chip" data-value="Brand identity">Brand identity</div>
+          <div class="chip" data-value="Business card">Business card</div>
+          <div class="chip" data-value="Social media graphics">Social media</div>
+          <div class="chip" data-value="Flyer / poster">Flyer / poster</div>
+          <div class="chip" data-value="Packaging">Packaging</div>
+          <div class="chip" data-value="Other">Other</div>
+        </div>
+      </div>
+      <hr class="divider" />
+      <div class="field">
+        <label>Industry / niche</label>
+        <input type="text" name="industry" placeholder="e.g. tech startup, coffee shop, fitness, law firm…" />
+      </div>
+      <div class="field">
+        <label>What does your business do? <span class="req">*</span></label>
+        <textarea name="about" rows="3" placeholder="Describe your product or service in a few sentences." required></textarea>
+      </div>
+      <div class="field">
+        <label>Who is your target audience?</label>
+        <textarea name="audience" rows="2" placeholder="Age range, interests, demographics, profession…"></textarea>
+      </div>
+    </div>
+
+    <!-- 3. Look & feel -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🎨</div>
+        <div class="card-title">Look & Feel</div>
+      </div>
+      <div class="field">
+        <label>Desired style / mood</label>
+        <div class="chips" id="chips-style">
+          <div class="chip" data-value="Modern & minimal">Modern & minimal</div>
+          <div class="chip" data-value="Bold & energetic">Bold & energetic</div>
+          <div class="chip" data-value="Elegant & luxury">Elegant & luxury</div>
+          <div class="chip" data-value="Playful & fun">Playful & fun</div>
+          <div class="chip" data-value="Vintage / retro">Vintage / retro</div>
+          <div class="chip" data-value="Technical / corporate">Corporate</div>
+          <div class="chip" data-value="Organic / natural">Organic / natural</div>
+        </div>
+      </div>
+      <hr class="divider" />
+      <div class="field">
+        <label>Preferred colors</label>
+        <div class="swatches" id="swatches">
+          <div class="swatch" style="background:#2563EB" data-value="Blue"></div>
+          <div class="swatch" style="background:#16A34A" data-value="Green"></div>
+          <div class="swatch" style="background:#DC2626" data-value="Red"></div>
+          <div class="swatch" style="background:#D97706" data-value="Amber"></div>
+          <div class="swatch" style="background:#7C3AED" data-value="Purple"></div>
+          <div class="swatch" style="background:#DB2777" data-value="Pink"></div>
+          <div class="swatch" style="background:#0D9488" data-value="Teal"></div>
+          <div class="swatch" style="background:#c8f135" data-value="Lime"></div>
+          <div class="swatch" style="background:#374151" data-value="Dark grey"></div>
+          <div class="swatch" style="background:#111827" data-value="Black"></div>
+          <div class="swatch" style="background:#F3F4F6;border:1px solid #555;" data-value="White"></div>
+        </div>
+        <p class="hint">Tap any colors that appeal to you.</p>
+        <input type="text" name="color_notes" placeholder="Specific hex codes or color descriptions…" style="margin-top:9px;" />
+      </div>
+      <div class="field">
+        <label>Colors or styles to avoid</label>
+        <input type="text" name="avoid" placeholder="e.g. no neon, avoid red, nothing too corporate…" />
+      </div>
+    </div>
+
+    <!-- 4. Content -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">✏️</div>
+        <div class="card-title">Content & Text</div>
+      </div>
+      <div class="field">
+        <label>Text / wording to include</label>
+        <textarea name="wording" rows="2" placeholder="Company name, tagline, slogan, contact info…"></textarea>
+      </div>
+      <div class="field">
+        <label>Do you have existing brand assets?</label>
+        <select name="existing_brand">
+          <option value="">— select one —</option>
+          <option>No — starting from scratch</option>
+          <option>Yes — I will share files separately</option>
+          <option>Yes — please redesign / refresh existing</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 5. References -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🔗</div>
+        <div class="card-title">References & Inspiration</div>
+      </div>
+      <div class="field">
+        <label>Reference links</label>
+        <p class="hint" style="margin-bottom:8px;">Websites, Pinterest boards, competitor brands you admire.</p>
+        <div class="refs" id="refs">
+          <div class="ref-row">
+            <input type="url" name="references[]" placeholder="https://…" />
+          </div>
+        </div>
+        <button type="button" class="add-btn" onclick="addRef()">+ Add another link</button>
+      </div>
+      <div class="field">
+        <label>Anything else we should know?</label>
+        <textarea name="notes" rows="3" placeholder="Specific requests, things to avoid, your vision, hard deadlines…"></textarea>
+      </div>
+    </div>
+
+    <!-- 6. Deliverables -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">📦</div>
+        <div class="card-title">Deliverables & Timeline</div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>File formats needed</label>
+          <div class="chips" id="chips-formats">
+            <div class="chip" data-value="PNG">PNG</div>
+            <div class="chip" data-value="SVG">SVG</div>
+            <div class="chip" data-value="PDF">PDF</div>
+            <div class="chip" data-value="AI / EPS">AI / EPS</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Deadline</label>
+          <input type="date" name="deadline" />
+          <p class="hint">Leave blank if flexible.</p>
+        </div>
+      </div>
+      <hr class="divider" />
+      <div class="field">
+        <label>Budget range</label>
+        <select name="budget">
+          <option value="">— select one —</option>
+          <option>Under $500</option>
+          <option>$500 – $1,000</option>
+          <option>$1,000 – $2,500</option>
+          <option>$2,500 – $5,000</option>
+          <option>$5,000+</option>
+          <option>Let's discuss</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-card">
+      <p>We'll review your brief and get back to you within <strong style="color:var(--text);">1–2 business days</strong> with a proposal.</p>
+      <button type="submit" class="btn-submit" id="submit-btn">Send My Request →</button>
+      <div class="error-msg" id="error-msg">Something went wrong — please try again or contact us directly.</div>
+    </div>
+
+  </form>
+
+  <div class="thankyou" id="thankyou">
+    <div class="check-circle">✓</div>
+    <h2>Request received!</h2>
+    <p>Thanks for sharing your brief. We'll review everything and be in touch within 1–2 business days with next steps.</p>
+  </div>
+</div>
+
+<script>
+  // ── Dropdown ──
+  function toggleDropdown() {
+    const btn  = document.getElementById('dropbtn');
+    const menu = document.getElementById('dropmenu');
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) { closeDropdown(); } else {
+      btn.classList.add('open');
+      menu.classList.add('open');
+    }
+  }
+
+  function closeDropdown() {
+    document.getElementById('dropbtn').classList.remove('open');
+    document.getElementById('dropmenu').classList.remove('open');
+  }
+
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    if (!document.querySelector('.dropdown-wrap').contains(e.target)) closeDropdown();
+  });
+
+  function scrollToForm() {
+    document.getElementById('form-start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── Chips ──
+  document.querySelectorAll('.chips .chip').forEach(c => {
+    c.addEventListener('click', () => c.classList.toggle('on'));
+  });
+
+  // ── Swatches ──
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.addEventListener('click', () => s.classList.toggle('on'));
+  });
+
+  // ── Add reference ──
+  function addRef() {
+    const refs = document.getElementById('refs');
+    const row = document.createElement('div');
+    row.className = 'ref-row';
+    row.innerHTML = '<input type="url" name="references[]" placeholder="https://…" /><button type="button" class="rm-btn" onclick="this.parentElement.remove()">×</button>';
+    refs.appendChild(row);
+    row.querySelector('input').focus();
+  }
+
+  // ── Collect hidden fields ──
+  function collectAll() {
+    const getChips = id => [...document.querySelectorAll(`#${id} .chip.on`)].map(c => c.dataset.value).join(', ') || 'Not specified';
+    const getSwatches = () => [...document.querySelectorAll('#swatches .swatch.on')].map(s => s.dataset.value).join(', ') || 'Not specified';
+    document.getElementById('f-types').value  = getChips('chips-types');
+    document.getElementById('f-style').value  = getChips('chips-style');
+    document.getElementById('f-colors').value = getSwatches();
+    document.getElementById('f-formats').value = getChips('chips-formats');
+  }
+
+  // ── Submit ──
+  document.getElementById('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    collectAll();
+    const btn = document.getElementById('submit-btn');
+    const err = document.getElementById('error-msg');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    err.style.display = 'none';
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        document.querySelector('.hero').style.display = 'none';
+        document.querySelector('.cta-bar').style.display = 'none';
+        document.getElementById('form').style.display = 'none';
+        document.getElementById('thankyou').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else { throw new Error(); }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send My Request →';
+      err.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
