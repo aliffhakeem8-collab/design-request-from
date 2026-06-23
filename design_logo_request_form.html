@@ -1,0 +1,220 @@
+<h2 class="sr-only">Design & Logo Request Form — fill in all fields and submit to your designer</h2>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.form-wrap { padding: 1.5rem 0; max-width: 640px; }
+.form-header { margin-bottom: 2rem; }
+.form-header h1 { font-size: 22px; font-weight: 500; color: var(--color-text-primary); }
+.form-header p { font-size: 14px; color: var(--color-text-secondary); margin-top: 6px; }
+.section { margin-bottom: 2rem; }
+.section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 1rem; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.field { margin-bottom: 1.25rem; }
+.field label { display: block; font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 5px; }
+.field input, .field textarea, .field select { width: 100%; font-family: var(--font-sans); font-size: 14px; color: var(--color-text-primary); background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 8px 12px; transition: border-color 0.15s; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--color-border-primary); }
+.field textarea { resize: vertical; line-height: 1.5; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.color-swatches { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.1s; }
+.swatch:hover { transform: scale(1.15); }
+.swatch.selected { border-color: var(--color-border-primary); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip { font-size: 13px; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); cursor: pointer; color: var(--color-text-secondary); background: var(--color-background-primary); transition: all 0.1s; }
+.chip:hover { border-color: var(--color-border-primary); color: var(--color-text-primary); }
+.chip.selected { background: var(--color-background-secondary); border-color: var(--color-border-primary); color: var(--color-text-primary); font-weight: 500; }
+.ref-row { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+.ref-row input { flex: 1; }
+.add-ref { font-size: 13px; color: var(--color-text-secondary); cursor: pointer; white-space: nowrap; padding: 8px 12px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); background: none; }
+.add-ref:hover { border-color: var(--color-border-primary); color: var(--color-text-primary); }
+.submit-row { display: flex; gap: 12px; margin-top: 2rem; padding-top: 1.5rem; border-top: 0.5px solid var(--color-border-tertiary); }
+.btn-primary { font-size: 14px; font-weight: 500; padding: 10px 24px; border-radius: var(--border-radius-md); background: var(--color-text-primary); color: var(--color-background-primary); border: none; cursor: pointer; }
+.btn-secondary { font-size: 14px; padding: 10px 20px; border-radius: var(--border-radius-md); background: none; border: 0.5px solid var(--color-border-secondary); color: var(--color-text-secondary); cursor: pointer; }
+.btn-primary:hover { opacity: 0.85; }
+.btn-secondary:hover { border-color: var(--color-border-primary); color: var(--color-text-primary); }
+.hint { font-size: 12px; color: var(--color-text-tertiary); margin-top: 4px; }
+.refs-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.ref-item { display: flex; gap: 8px; align-items: center; }
+.ref-item input { flex: 1; }
+.remove-ref { font-size: 18px; color: var(--color-text-tertiary); background: none; border: none; cursor: pointer; line-height: 1; padding: 0 4px; }
+.remove-ref:hover { color: var(--color-text-secondary); }
+</style>
+
+<div class="form-wrap">
+  <div class="form-header">
+    <h1><i class="ti ti-palette" style="font-size:20px; vertical-align:-2px; margin-right:8px;" aria-hidden="true"></i>Design & logo request</h1>
+    <p>Fill in as much detail as possible — the more context, the better the result.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Your details</div>
+    <div class="two-col">
+      <div class="field">
+        <label>Your name</label>
+        <input type="text" placeholder="Jane Smith" />
+      </div>
+      <div class="field">
+        <label>Company / project name</label>
+        <input type="text" placeholder="Acme Co." />
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="jane@acme.com" />
+      </div>
+      <div class="field">
+        <label>Phone (optional)</label>
+        <input type="tel" placeholder="+1 555 000 0000" />
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Project details</div>
+    <div class="field">
+      <label>Type of design needed</label>
+      <div class="chips" id="type-chips">
+        <div class="chip" onclick="toggleChip(this)">Logo</div>
+        <div class="chip" onclick="toggleChip(this)">Brand identity</div>
+        <div class="chip" onclick="toggleChip(this)">Business card</div>
+        <div class="chip" onclick="toggleChip(this)">Social media graphics</div>
+        <div class="chip" onclick="toggleChip(this)">Flyer / poster</div>
+        <div class="chip" onclick="toggleChip(this)">Packaging</div>
+        <div class="chip" onclick="toggleChip(this)">Other</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Industry / niche</label>
+      <input type="text" placeholder="e.g. tech startup, coffee shop, fitness, law firm…" />
+    </div>
+    <div class="field">
+      <label>What does your business do?</label>
+      <textarea rows="3" placeholder="Describe your product or service in a few sentences."></textarea>
+    </div>
+    <div class="field">
+      <label>Who is your target audience?</label>
+      <textarea rows="2" placeholder="Age range, interests, demographics, profession…"></textarea>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Look & feel</div>
+    <div class="field">
+      <label>Desired style / mood</label>
+      <div class="chips" id="style-chips">
+        <div class="chip" onclick="toggleChip(this)">Modern & minimal</div>
+        <div class="chip" onclick="toggleChip(this)">Bold & energetic</div>
+        <div class="chip" onclick="toggleChip(this)">Elegant & luxury</div>
+        <div class="chip" onclick="toggleChip(this)">Playful & fun</div>
+        <div class="chip" onclick="toggleChip(this)">Vintage / retro</div>
+        <div class="chip" onclick="toggleChip(this)">Technical / corporate</div>
+        <div class="chip" onclick="toggleChip(this)">Organic / natural</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Preferred colors</label>
+      <div class="color-swatches" id="color-swatches">
+        <div class="swatch" style="background:#1D4ED8" title="Blue" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#16A34A" title="Green" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#DC2626" title="Red" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#D97706" title="Amber" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#7C3AED" title="Purple" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#DB2777" title="Pink" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#0D9488" title="Teal" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#374151" title="Dark grey" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#111827" title="Black" onclick="toggleSwatch(this)"></div>
+        <div class="swatch" style="background:#F3F4F6; border: 0.5px solid #D1D5DB;" title="Light/White" onclick="toggleSwatch(this)"></div>
+      </div>
+      <p class="hint">Select any that apply, or describe below.</p>
+      <input type="text" placeholder="Specific hex codes or color descriptions…" style="margin-top: 8px;" />
+    </div>
+    <div class="field">
+      <label>Colors or styles to avoid</label>
+      <input type="text" placeholder="e.g. no neon, avoid red, nothing too corporate…" />
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Content & text</div>
+    <div class="field">
+      <label>Text / wording to include</label>
+      <textarea rows="2" placeholder="Company name, tagline, contact info, etc."></textarea>
+    </div>
+    <div class="field">
+      <label>Do you have an existing logo or brand guidelines?</label>
+      <select>
+        <option value="">— select —</option>
+        <option>No — starting from scratch</option>
+        <option>Yes — I will share files separately</option>
+        <option>Yes — please redesign / refresh existing</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">References & inspiration</div>
+    <div class="field">
+      <label>Reference links (websites, Pinterest boards, competitor brands…)</label>
+      <div class="refs-list" id="refs-list">
+        <div class="ref-item">
+          <input type="url" placeholder="https://…" />
+        </div>
+      </div>
+      <button class="add-ref" onclick="addRef()" style="margin-top:8px;"><i class="ti ti-plus" style="font-size:14px; vertical-align:-1px; margin-right:4px;" aria-hidden="true"></i>Add another link</button>
+    </div>
+    <div class="field">
+      <label>Anything else we should know?</label>
+      <textarea rows="3" placeholder="Specific requests, things to avoid, context about your vision, deadlines…"></textarea>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Deliverables & timeline</div>
+    <div class="two-col">
+      <div class="field">
+        <label>File formats needed</label>
+        <div class="chips" id="file-chips">
+          <div class="chip" onclick="toggleChip(this)">PNG</div>
+          <div class="chip" onclick="toggleChip(this)">SVG</div>
+          <div class="chip" onclick="toggleChip(this)">PDF</div>
+          <div class="chip" onclick="toggleChip(this)">AI / EPS</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Deadline</label>
+        <input type="date" />
+        <p class="hint">Leave blank if flexible.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="submit-row">
+    <button class="btn-primary" onclick="sendPrompt('The customer has submitted their design request form. Help me review it and suggest next steps.')">Submit request ↗</button>
+    <button class="btn-secondary" onclick="clearForm()">Clear form</button>
+  </div>
+</div>
+
+<script>
+function toggleChip(el) {
+  el.classList.toggle('selected');
+}
+function toggleSwatch(el) {
+  el.classList.toggle('selected');
+}
+function addRef() {
+  const list = document.getElementById('refs-list');
+  const item = document.createElement('div');
+  item.className = 'ref-item';
+  item.innerHTML = '<input type="url" placeholder="https://…" /><button class="remove-ref" onclick="this.parentElement.remove()" aria-label="Remove">×</button>';
+  list.appendChild(item);
+  item.querySelector('input').focus();
+}
+function clearForm() {
+  document.querySelectorAll('input, textarea').forEach(el => el.value = '');
+  document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+  document.querySelectorAll('.chip.selected, .swatch.selected').forEach(el => el.classList.remove('selected'));
+  const list = document.getElementById('refs-list');
+  list.innerHTML = '<div class="ref-item"><input type="url" placeholder="https://…" /></div>';
+}
+</script>
