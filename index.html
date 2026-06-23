@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design & Logo Request</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page-wrap {
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: #111;
+  }
+
+  .page-header p {
+    font-size: 15px;
+    color: #666;
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e8e8e5;
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 1.25rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0ee;
+  }
+
+  .field { margin-bottom: 1.1rem; }
+  .field:last-child { margin-bottom: 0; }
+
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 5px;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #111;
+    background: #fafaf9;
+    border: 1px solid #e2e2df;
+    border-radius: 8px;
+    padding: 9px 12px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    appearance: none;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: none;
+    border-color: #aaa;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+    background: #fff;
+  }
+
+  .field textarea { resize: vertical; line-height: 1.55; }
+
+  .hint {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 4px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  /* Chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 5px; }
+
+  .chip {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    padding: 5px 13px;
+    border-radius: 20px;
+    border: 1px solid #e0e0dd;
+    cursor: pointer;
+    color: #666;
+    background: #fafaf9;
+    transition: all 0.12s;
+    user-select: none;
+  }
+
+  .chip:hover { border-color: #bbb; color: #333; }
+  .chip.selected { background: #111; border-color: #111; color: #fff; }
+
+  /* Color swatches */
+  .swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+  .swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.1s, box-shadow 0.1s;
+    position: relative;
+  }
+
+  .swatch:hover { transform: scale(1.12); }
+
+  .swatch.selected {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #333;
+  }
+
+  .swatch.selected::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+
+  /* References */
+  .refs-list { display: flex; flex-direction: column; gap: 7px; margin-top: 5px; }
+
+  .ref-item { display: flex; gap: 8px; align-items: center; }
+  .ref-item input { flex: 1; }
+
+  .remove-btn {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 20px;
+    line-height: 1;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    transition: color 0.1s, background 0.1s;
+  }
+  .remove-btn:hover { color: #888; background: #f0f0ee; }
+
+  .add-btn {
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #666;
+    background: none;
+    border: 1px solid #e0e0dd;
+    border-radius: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: border-color 0.12s, color 0.12s;
+  }
+  .add-btn:hover { border-color: #bbb; color: #333; }
+
+  /* Submit */
+  .submit-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e8e8e5;
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .submit-card p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .btn-submit {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px 28px;
+    border-radius: 9px;
+    background: #111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .btn-submit:hover { opacity: 0.82; }
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Thank you screen */
+  .thankyou {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .thankyou .check {
+    width: 56px;
+    height: 56px;
+    background: #111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .thankyou h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 8px;
+  }
+
+  .thankyou p {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .error-msg {
+    display: none;
+    background: #fff2f2;
+    border: 1px solid #fcc;
+    color: #c00;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <h1>Design &amp; logo request</h1>
+    <p>Fill in as much detail as you can — the more context, the better the result. We'll be in touch within 1–2 business days.</p>
+  </div>
+
+  <form id="request-form" action="https://formspree.io/f/xgojvwwj" method="POST">
+
+    <!-- Hidden fields for chips & swatches -->
+    <input type="hidden" name="design_types" id="f-types" />
+    <input type="hidden" name="style_mood" id="f-style" />
+    <input type="hidden" name="preferred_colors" id="f-colors" />
+    <input type="hidden" name="file_formats" id="f-formats" />
+
+    <!-- Your details -->
+    <div class="card">
+      <div class="card-title">Your details</div>
+      <div class="two-col">
+        <div class="field">
+          <label for="name">Your name *</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="field">
+          <label for="company">Company / project name *</label>
+          <input type="text" id="company" name="company" placeholder="Acme Co." required />
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="jane@acme.com" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Project details -->
+    <div class="card">
+      <div class="card-title">Project details</div>
+      <div class="field">
+        <label>Type of design needed *</label>
+        <div class="chips" id="chips-types">
+          <div class="chip" data-value="Logo">Logo</div>
+          <div class="chip" data-value="Brand identity">Brand identity</div>
+          <div class="chip" data-value="Business card">Business card</div>
+          <div class="chip" data-value="Social media graphics">Social media graphics</div>
+          <div class="chip" data-value="Flyer / poster">Flyer / poster</div>
+          <div class="chip" data-value="Packaging">Packaging</div>
+          <div class="chip" data-value="Other">Other</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="industry">Industry / niche</label>
+        <input type="text" id="industry" name="industry" placeholder="e.g. tech startup, coffee shop, fitness, law firm…" />
+      </div>
+      <div class="field">
+        <label for="about">What does your business do? *</label>
+        <textarea id="about" name="about" rows="3" placeholder="Describe your product or service in a few sentences." required></textarea>
+      </div>
+      <div class="field">
+        <label for="audience">Who is your target audience?</label>
+        <textarea id="audience" name="audience" rows="2" placeholder="Age range, interests, demographics, profession…"></textarea>
+      </div>
+    </div>
+
+    <!-- Look & feel -->
+    <div class="card">
+      <div class="card-title">Look &amp; feel</div>
+      <div class="field">
+        <label>Desired style / mood</label>
+        <div class="chips" id="chips-style">
+          <div class="chip" data-value="Modern & minimal">Modern &amp; minimal</div>
+          <div class="chip" data-value="Bold & energetic">Bold &amp; energetic</div>
+          <div class="chip" data-value="Elegant & luxury">Elegant &amp; luxury</div>
+          <div class="chip" data-value="Playful & fun">Playful &amp; fun</div>
+          <div class="chip" data-value="Vintage / retro">Vintage / retro</div>
+          <div class="chip" data-value="Technical / corporate">Technical / corporate</div>
+          <div class="chip" data-value="Organic / natural">Organic / natural</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Preferred colors</label>
+        <div class="swatches" id="swatches">
+          <div class="swatch" style="background:#1D4ED8" title="Blue" data-value="Blue"></div>
+          <div class="swatch" style="background:#16A34A" title="Green" data-value="Green"></div>
+          <div class="swatch" style="background:#DC2626" title="Red" data-value="Red"></div>
+          <div class="swatch" style="background:#D97706" title="Amber" data-value="Amber"></div>
+          <div class="swatch" style="background:#7C3AED" title="Purple" data-value="Purple"></div>
+          <div class="swatch" style="background:#DB2777" title="Pink" data-value="Pink"></div>
+          <div class="swatch" style="background:#0D9488" title="Teal" data-value="Teal"></div>
+          <div class="swatch" style="background:#374151" title="Dark grey" data-value="Dark grey"></div>
+          <div class="swatch" style="background:#111827" title="Black" data-value="Black"></div>
+          <div class="swatch" style="background:#F3F4F6; border:1px solid #D1D5DB;" title="White / light" data-value="White / light"></div>
+        </div>
+        <p class="hint">Select any that apply, or describe below.</p>
+        <input type="text" name="color_notes" placeholder="Specific hex codes or color descriptions…" style="margin-top:8px;" />
+      </div>
+      <div class="field">
+        <label for="avoid">Colors or styles to avoid</label>
+        <input type="text" id="avoid" name="avoid" placeholder="e.g. no neon, avoid red, nothing too corporate…" />
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="card">
+      <div class="card-title">Content &amp; text</div>
+      <div class="field">
+        <label for="wording">Text / wording to include</label>
+        <textarea id="wording" name="wording" rows="2" placeholder="Company name, tagline, contact info, etc."></textarea>
+      </div>
+      <div class="field">
+        <label for="existing">Do you have an existing logo or brand guidelines?</label>
+        <select id="existing" name="existing_brand">
+          <option value="">— select —</option>
+          <option>No — starting from scratch</option>
+          <option>Yes — I will share files separately</option>
+          <option>Yes — please redesign / refresh existing</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div class="card">
+      <div class="card-title">References &amp; inspiration</div>
+      <div class="field">
+        <label>Reference links (websites, Pinterest, competitor brands…)</label>
+        <div class="refs-list" id="refs-list">
+          <div class="ref-item">
+            <input type="url" name="references[]" placeholder="https://…" />
+          </div>
+        </div>
+        <button type="button" class="add-btn" onclick="addRef()">+ Add another link</button>
+      </div>
+      <div class="field">
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Specific requests, things to avoid, context about your vision, deadlines…"></textarea>
+      </div>
+    </div>
+
+    <!-- Deliverables -->
+    <div class="card">
+      <div class="card-title">Deliverables &amp; timeline</div>
+      <div class="two-col">
+        <div class="field">
+          <label>File formats needed</label>
+          <div class="chips" id="chips-formats">
+            <div class="chip" data-value="PNG">PNG</div>
+            <div class="chip" data-value="SVG">SVG</div>
+            <div class="chip" data-value="PDF">PDF</div>
+            <div class="chip" data-value="AI / EPS">AI / EPS</div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="deadline">Deadline</label>
+          <input type="date" id="deadline" name="deadline" />
+          <p class="hint">Leave blank if flexible.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-card">
+      <p>Your request will be sent directly to our team. We'll review it and get back to you within 1–2 business days.</p>
+      <button type="submit" class="btn-submit" id="submit-btn">Send request</button>
+    </div>
+
+    <div class="error-msg" id="error-msg">Something went wrong — please try again or email us directly.</div>
+
+  </form>
+
+  <!-- Thank you -->
+  <div class="thankyou" id="thankyou">
+    <div class="check">✓</div>
+    <h2>Request received!</h2>
+    <p>Thanks for filling this in. We'll review your brief and be in touch within 1–2 business days.</p>
+  </div>
+
+</div>
+
+<script>
+  // Chip toggle
+  document.querySelectorAll('.chips').forEach(group => {
+    group.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => chip.classList.toggle('selected'));
+    });
+  });
+
+  // Swatch toggle
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.addEventListener('click', () => s.classList.toggle('selected'));
+  });
+
+  // Add reference field
+  function addRef() {
+    const list = document.getElementById('refs-list');
+    const item = document.createElement('div');
+    item.className = 'ref-item';
+    item.innerHTML = '<input type="url" name="references[]" placeholder="https://…" /><button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>';
+    list.appendChild(item);
+    item.querySelector('input').focus();
+  }
+
+  // Collect chips/swatches into hidden fields before submit
+  function collectSelections() {
+    const collect = (groupId) =>
+      [...document.querySelectorAll(`#${groupId} .chip.selected`)]
+        .map(c => c.dataset.value).join(', ');
+
+    const collectSwatches = () =>
+      [...document.querySelectorAll('#swatches .swatch.selected')]
+        .map(s => s.dataset.value).join(', ');
+
+    document.getElementById('f-types').value = collect('chips-types') || 'Not specified';
+    document.getElementById('f-style').value = collect('chips-style') || 'Not specified';
+    document.getElementById('f-colors').value = collectSwatches() || 'Not specified';
+    document.getElementById('f-formats').value = collect('chips-formats') || 'Not specified';
+  }
+
+  // Form submission via fetch (AJAX)
+  document.getElementById('request-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    collectSelections();
+
+    const btn = document.getElementById('submit-btn');
+    const errorMsg = document.getElementById('error-msg');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    errorMsg.style.display = 'none';
+
+    const data = new FormData(this);
+
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        document.getElementById('request-form').style.display = 'none';
+        document.querySelector('.page-header').style.display = 'none';
+        document.getElementById('thankyou').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send request';
+      errorMsg.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
