@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio — ES Design</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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" />
+<style>
+:root {
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --surface2: #222;
+  --border: #2e2e2e;
+  --border2: #3a3a3a;
+  --accent: #f7c12d;
+  --accent-dark: #d9a420;
+  --text: #f0f0f0;
+  --text2: #a0a0a0;
+  --text3: #606060;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+/* ── Nav ── */
+.nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex; justify-content: center;
+}
+.nav-inner {
+  max-width: 1100px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 0; gap: 12px;
+}
+.nav-brand {
+  font-size: 15px; font-weight: 700; color: var(--text);
+  text-decoration: none; letter-spacing: -0.3px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-brand span { color: var(--accent); }
+.nav-links { display: flex; gap: 8px; }
+.nav-link {
+  font-size: 13px; font-weight: 600; color: var(--text2);
+  text-decoration: none; padding: 7px 14px;
+  border: 1px solid var(--border2); border-radius: 9px;
+  background: var(--surface2); transition: all 0.15s;
+}
+.nav-link:hover, .nav-link.active { border-color: var(--accent); color: var(--accent); }
+.nav-cta {
+  font-size: 13px; font-weight: 700; color: #0f0f0f;
+  text-decoration: none; padding: 8px 16px;
+  background: var(--accent); border-radius: 9px;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--accent-dark); }
+
+/* ── Hero ── */
+.hero {
+  background: var(--accent);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #3a4a00; margin-bottom: 10px;
+}
+.hero h1 {
+  font-size: clamp(30px, 5vw, 52px); font-weight: 800;
+  color: #0f0f0f; letter-spacing: -2px; line-height: 1.05; margin-bottom: 12px;
+}
+.hero p { font-size: 16px; color: #3a4a00; line-height: 1.6; max-width: 500px; margin: 0 auto; }
+
+/* ── Slideshow ── */
+.slideshow-wrap {
+  position: relative;
+  width: 100%; height: 85vh; min-height: 500px;
+  background: #000; overflow: hidden;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 0.7s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.slide.active { opacity: 1; }
+
+.slide-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: brightness(0.45);
+  transition: transform 8s ease;
+}
+.slide.active .slide-bg { transform: scale(1.04); }
+
+.slide-content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 2rem;
+  max-width: 640px;
+}
+
+.slide-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #0f0f0f; background: var(--accent);
+  padding: 4px 12px; border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.slide-title {
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 800; color: #fff;
+  letter-spacing: -1px; line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.slide-desc {
+  font-size: 15px; color: rgba(255,255,255,0.7);
+  line-height: 1.6; margin-bottom: 20px;
+}
+
+.slide-meta {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+}
+.slide-meta span {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  display: flex; align-items: center; gap: 5px;
+}
+
+/* Controls */
+.slide-prev, .slide-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 10; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff; width: 48px; height: 48px;
+  border-radius: 50%; font-size: 18px;
+  cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+}
+.slide-prev { left: 20px; }
+.slide-next { right: 20px; }
+.slide-prev:hover, .slide-next:hover { background: rgba(200,241,53,0.2); border-color: var(--accent); color: var(--accent); }
+
+/* Dots */
+.slide-dots {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  z-index: 10; display: flex; gap: 8px;
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.3); cursor: pointer;
+  transition: all 0.2s; border: none;
+}
+.dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+/* Counter */
+.slide-counter {
+  position: absolute; top: 20px; right: 20px;
+  z-index: 10; font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
+  padding: 6px 12px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.slide-counter span { color: var(--accent); }
+
+/* Auto-play bar */
+.progress-bar {
+  position: absolute; bottom: 0; left: 0; height: 3px;
+  background: var(--accent); width: 0%;
+  transition: width linear;
+  z-index: 10;
+}
+
+/* ── Stats ── */
+.stats {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+}
+.stats-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; text-align: center;
+}
+.stat-num { font-size: 28px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+.stat-label { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+@media (max-width: 600px) {
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .slide-prev, .slide-next { width: 38px; height: 38px; font-size: 14px; }
+  .nav-brand span.brand-text { display: none; }
+}
+
+/* ── CTA section ── */
+.cta-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--bg);
+}
+.cta-section h2 {
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 800; letter-spacing: -1px;
+  color: var(--text); margin-bottom: 10px;
+}
+.cta-section p { font-size: 15px; color: var(--text2); margin-bottom: 1.5rem; line-height: 1.6; }
+.btn-cta {
+  display: inline-block;
+  font-size: 15px; font-weight: 700;
+  padding: 14px 36px; border-radius: 10px;
+  background: var(--accent); color: #0f0f0f;
+  text-decoration: none; transition: background 0.15s, transform 0.1s;
+}
+.btn-cta:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 13px; color: var(--text3);
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">ES <span class="brand-text">Design Studio</span></a>
+    <div class="nav-links">
+      <a href="/form/" class="nav-link">Request Form</a>
+      <a href="/main/" class="nav-link active">Portfolio</a>
+    </div>
+    <a href="/" class="nav-cta">Get a Quote →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-eyebrow">Our Work</div>
+  <h1>Portfolio</h1>
+  <p>A showcase of brands, logos, and identities we've crafted for our clients.</p>
+</div>
+
+<!-- Slideshow -->
+<div class="slideshow-wrap" id="slideshow">
+
+  <div class="slide active" id="slide-0">
+    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1600508774634-4e11d34730e2?w=1400&q=80');"></div>
+    <div class="slide-content">
+      <div class="slide-tag">Logo Design</div>
+      <div class="slide-title">Project Name Here</div>
+      <div class="slide-desc">A bold brand identity crafted for a modern lifestyle brand. Clean lines, confident typography, and a mark that stands out anywhere.</div>
+      <div class="slide-meta">
+        <span>🏷️ Branding</span>
+        <span>📅 2024</span>
+        <span>✅ Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" id="slide-1">
+    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1400&q=80');"></div>
+    <div class="slide-content">
+      <div class="slide-tag">Brand Identity</div>
+      <div class="slide-title">Project Name Here</div>
+      <div class="slide-desc">Full brand identity system including logo, color palette, typography, and usage guidelines delivered as a complete brand kit.</div>
+      <div class="slide-meta">
+        <span>🏷️ Identity</span>
+        <span>📅 2024</span>
+        <span>✅ Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" id="slide-2">
+    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1400&q=80');"></div>
+    <div class="slide-content">
+      <div class="slide-tag">Social Media</div>
+      <div class="slide-title">Project Name Here</div>
+      <div class="slide-desc">A complete social media design kit — post templates, story frames, and highlight covers built for consistent, scroll-stopping content.</div>
+      <div class="slide-meta">
+        <span>🏷️ Social Media</span>
+        <span>📅 2024</span>
+        <span>✅ Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" id="slide-3">
+    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=1400&q=80');"></div>
+    <div class="slide-content">
+      <div class="slide-tag">Print Design</div>
+      <div class="slide-title">Project Name Here</div>
+      <div class="slide-desc">Business cards, letterheads, and print collateral designed to leave a lasting impression on every client interaction.</div>
+      <div class="slide-meta">
+        <span>🏷️ Print</span>
+        <span>📅 2023</span>
+        <span>✅ Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" id="slide-4">
+    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1400&q=80');"></div>
+    <div class="slide-content">
+      <div class="slide-tag">Packaging</div>
+      <div class="slide-title">Project Name Here</div>
+      <div class="slide-desc">Product packaging that turns heads on the shelf. Designed with retail psychology in mind — striking visuals that communicate quality.</div>
+      <div class="slide-meta">
+        <span>🏷️ Packaging</span>
+        <span>📅 2023</span>
+        <span>✅ Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="slide-prev" onclick="changeSlide(-1)">&#8592;</button>
+  <button class="slide-next" onclick="changeSlide(1)">&#8594;</button>
+
+  <!-- Counter -->
+  <div class="slide-counter"><span id="cur">1</span> / <span id="tot">5</span></div>
+
+  <!-- Dots -->
+  <div class="slide-dots" id="dots"></div>
+
+  <!-- Progress bar -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Projects completed</div>
+    </div>
+    <div>
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Happy clients</div>
+    </div>
+    <div>
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Average rating</div>
+    </div>
+    <div>
+      <div class="stat-num">3yr</div>
+      <div class="stat-label">Experience</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to build your brand?</h2>
+  <p>Tell us about your project and we'll get back to you within 1–2 business days.</p>
+  <a href="index.html" class="btn-cta">Start Your Request →</a>
+</div>
+
+<!-- Footer -->
+<div class="footer">© 2024 ES Design Studio · All rights reserved</div>
+
+<script>
+  const total = 5;
+  let current = 0;
+  let timer, progressTimer;
+  const DURATION = 5000;
+
+  // Build dots
+  const dotsEl = document.getElementById('dots');
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function updateUI() {
+    document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === current));
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  function startProgress() {
+    const bar = document.getElementById('progress-bar');
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    setTimeout(() => {
+      bar.style.transition = 'width ' + DURATION + 'ms linear';
+      bar.style.width = '100%';
+    }, 50);
+  }
+
+  function goTo(n) {
+    current = (n + total) % total;
+    updateUI();
+    clearInterval(timer);
+    startProgress();
+    timer = setInterval(() => goTo(current + 1), DURATION);
+  }
+
+  function changeSlide(dir) { goTo(current + dir); }
+
+  // Keyboard nav
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') changeSlide(-1);
+    if (e.key === 'ArrowRight') changeSlide(1);
+  });
+
+  // Touch swipe
+  let touchX = 0;
+  document.getElementById('slideshow').addEventListener('touchstart', e => touchX = e.touches[0].clientX);
+  document.getElementById('slideshow').addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+  });
+
+  // Start
+  goTo(0);
+</script>
+</body>
+</html>
